@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.inuker.bluetooth.library.BluetoothContext;
 import com.inuker.bluetooth.library.Code;
 
@@ -21,6 +23,5 @@ public class MyApplication extends Application {
             instance = this;
             BluetoothContext.set(this);
         }
-
 
 }

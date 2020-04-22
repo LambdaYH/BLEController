@@ -7,48 +7,122 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="137dp"
-        android:layout_marginTop="341dp"
-        android:layout_marginEnd="186dp"
-        android:layout_marginBottom="342dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="189dp"
         android:onClick="scanBLE"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="scan"
+        app:layout_constraintBottom_toTopOf="@+id/ColorOne"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/BLElist" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="222dp"
-        android:onClick="sendMsg"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="186dp"
+        android:onClick="connect"
+        android:text="connect"
+        app:layout_constraintBottom_toTopOf="@+id/ColorThree"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/BLElist" />
 
     <Spinner
         android:id="@+id/BLElist"
+        style="@android:style/Widget.Material.Spinner"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="262dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/BLESelecter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="monospace"
+        android:text="Select Lights"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/BLElist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switchLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="143dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="79dp"
+        android:fontFamily="monospace"
+        android:text="OFF/ON"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ColorTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ColorOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginBottom="342dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ColorTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="343dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ColorThree"
+        app:layout_constraintStart_toEndOf="@+id/ColorOne" />
+
+    <Button
+        android:id="@+id/ColorThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="345dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/BleStatus"
+        android:layout_width="126dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/switchLight"
+        app:layout_constraintEnd_toStartOf="@+id/connect"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/scan"
+        app:layout_constraintTop_toBottomOf="@+id/BLElist"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/disconnected" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

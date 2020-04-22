@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.inuker.bluetooth:library:1.4.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed493742af7a09fe6156613c36eaeb03/jetified-library-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed493742af7a09fe6156613c36eaeb03/jetified-library-1.4.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.inuker.bluetooth/library/1.4.0/4449c33bac5bbc088c5f0803e04c0cba5bb8b360/library-1.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.inuker.bluetooth/library/1.4.0/d13c7e1a84daa4fa3100e78c9db9e71c31e423a9/library-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -44,9 +44,7 @@ public class MainActivity extends AppCompatActivity { ;
     ArrayList listAds = new ArrayList();
     ArrayAdapter adapter;
     private Spinner deviceslist;
-    private BluetoothDevice mDevice;
     String address;
-    private DeviceDetailAdapter mAdapter;
     public static final int REQUEST_SUCCESS = Code.REQUEST_SUCCESS;
 
     public ImageView Blestatus;
@@ -59,7 +57,6 @@ public class MainActivity extends AppCompatActivity { ;
     private UUID character =null;
 
     private byte[] bytes;
-    public boolean isSwitch;
     public Switch mSwitch;
 
     @Override
@@ -72,7 +69,7 @@ public class MainActivity extends AppCompatActivity { ;
         deviceslist.setAdapter(adapter);
         deviceslist.setOnItemSelectedListener(myItemSelectedListener);
         requestPosition();
-        ImageView Blestatus = findViewById(R.id.BleStatus);
+        Blestatus=findViewById(R.id.BleStatus);
         mSwitch=findViewById(R.id.switchLight);
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -143,15 +140,6 @@ public class MainActivity extends AppCompatActivity { ;
             if (!isConnected) {
                 return;
             }
-            mDevice = BluetoothUtils.getRemoteDevice(address);
-            mAdapter = new DeviceDetailAdapter(MyApplication.getInstance(), mDevice);
-            DetailItem item = (DetailItem) mAdapter.getItem(position);
-            if (item.type == DetailItem.TYPE_CHARACTER) {
-                service=item.service;
-                character=item.uuid;
-            }
-
-
         }
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
@@ -159,15 +147,43 @@ public class MainActivity extends AppCompatActivity { ;
         }
     };
     public void connect(View view){
-        address = listAds.get(bleposition).toString();
-        ClientManager.getClient().connect(address, new BleConnectResponse() {
-            @Override
-            public void onResponse(int code, BleGattProfile data) {
-                if(code == REQUEST_SUCCESS){
-                    isConnected=true;
+        if(listAds.isEmpty()){
+            return;
+        }else{
+            address = listAds.get(bleposition).toString();
+            ClientManager.getClient().connect(address, new BleConnectResponse() {
+                @Override
+                public void onResponse(int code, BleGattProfile data) {
+                    if(code == REQUEST_SUCCESS){
+                        isConnected=true;
+                        Blestatus.setImageResource(R.drawable.connected);
+                    }
                 }
-            }
-        });
+            });
+        }
+    }
+    public void disconnect(View view){
+        if(listAds.isEmpty()){
+            return;
+        }else{
+            address = listAds.get(bleposition).toString();
+            ClientManager.getClient().disconnect(address);
+            isConnected=false;
+            Blestatus.setImageResource(R.drawable.disconnected);
+        }
+    }
+
+    public void sendBlue(View v){
+        bytes= new byte[]{'B', 'L','U','E','\n'};
+        sendMsg();
+    }
+    public void sendGreen(View v){
+        bytes= new byte[]{'G', 'R','E','E','N','\n'};
+        sendMsg();
+    }
+    public void sendMix(View v){
+        bytes= new byte[]{'M', 'I','X','\n'};
+        sendMsg();
     }
 
     private void requestPosition(){

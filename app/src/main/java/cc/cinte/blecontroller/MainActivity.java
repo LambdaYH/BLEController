@@ -6,6 +6,8 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +39,8 @@ import java.util.UUID;
 
 
 
-public class MainActivity extends AppCompatActivity { ;
+public class MainActivity extends AppCompatActivity {
+    private static final int REQUEST_ENABLE_BT = 1;
     ArrayList<String> list = new ArrayList();
     ArrayList listAds = new ArrayList();
     ArrayAdapter adapter;
@@ -126,6 +129,7 @@ public class MainActivity extends AppCompatActivity { ;
         devices.setAdapter(adapter);
         devices.setOnItemSelectedListener(myItemSelectedListener);
         requestPosition();
+        startBLE();
         Blestatus=findViewById(R.id.BleStatus);
         mSwitch=findViewById(R.id.switchLight);
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -310,6 +314,12 @@ public class MainActivity extends AppCompatActivity { ;
             // Permission has already been granted
         }
     }
-
+    private void startBLE(){
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (!bluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
+    }
 
 }

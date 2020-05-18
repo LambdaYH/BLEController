@@ -15,20 +15,20 @@
         android:layout_marginBottom="189dp"
         android:onClick="scanBLE"
         android:text="scan"
-        app:layout_constraintBottom_toTopOf="@+id/ColorOne"
+        app:layout_constraintBottom_toTopOf="@+id/White"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BLElist" />
 
     <Button
-        android:id="@+id/connect"
+        android:id="@+id/isconnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="186dp"
-        android:onClick="connect"
+        android:onClick="connect_Button"
         android:text="connect"
-        app:layout_constraintBottom_toTopOf="@+id/ColorThree"
+        app:layout_constraintBottom_toTopOf="@+id/Red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BLElist" />
 
@@ -74,74 +74,159 @@
         android:fontFamily="monospace"
         android:text="OFF/ON"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ColorTwo"
+        app:layout_constraintBottom_toTopOf="@+id/GREEN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/ColorOne"
+        android:id="@+id/White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginBottom="342dp"
-        android:onClick="sendBlue"
-        android:text="BLUE"
+        android:onClick="White_Button"
+        android:text="White"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/ColorTwo"
+        android:id="@+id/GREEN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="343dp"
-        android:onClick="sendGreen"
-        android:text="CREEN"
+        android:onClick="Green_Button"
+        android:text="Green"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ColorThree"
-        app:layout_constraintStart_toEndOf="@+id/ColorOne" />
+        app:layout_constraintEnd_toStartOf="@+id/Red"
+        app:layout_constraintStart_toEndOf="@+id/White" />
 
     <Button
-        android:id="@+id/ColorThree"
+        android:id="@+id/Red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="345dp"
-        android:onClick="sendMix"
-        android:text="MIX"
+        android:onClick="Blue_Button"
+        android:text="Red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/BleStatus"
-        android:layout_width="126dp"
-        android:layout_height="108dp"
+        android:layout_width="90dp"
+        android:layout_height="87dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="41dp"
         app:layout_constraintBottom_toTopOf="@+id/switchLight"
-        app:layout_constraintEnd_toStartOf="@+id/connect"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/isconnect"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toEndOf="@+id/scan"
         app:layout_constraintTop_toBottomOf="@+id/BLElist"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/disconnected" />
 
-    <Button
-        android:id="@+id/Disconnect"
+    <SeekBar
+        android:id="@+id/R_Pixel"
+        android:layout_width="0dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="238dp"
+        android:max="255"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/White" />
+
+    <SeekBar
+        android:id="@+id/G_Pixel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="159dp"
+        android:max="255"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R_Pixel" />
+
+    <SeekBar
+        android:id="@+id/B_Pixel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="74dp"
+        android:max="255"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/G_Pixel" />
+
+    <TextView
+        android:id="@+id/R"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginBottom="61dp"
+        android:text="R"
+        app:layout_constraintBottom_toTopOf="@+id/G_Pixel"
+        app:layout_constraintEnd_toStartOf="@+id/R_Pixel"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/White"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/B"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="74dp"
+        android:text="B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/B_Pixel"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/g"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="67dp"
+        android:text="G"
+        app:layout_constraintBottom_toTopOf="@+id/B"
+        app:layout_constraintEnd_toStartOf="@+id/G_Pixel"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/CC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="115dp"
-        android:onClick="disconnect"
-        android:text="DISCONNECT"
-        app:layout_constraintBottom_toTopOf="@+id/ColorThree"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="27dp"
+        android:text="Custom Color"
+        app:layout_constraintBottom_toTopOf="@+id/R_Pixel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BleStatus"
-        app:layout_constraintTop_toBottomOf="@+id/connect" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GREEN" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

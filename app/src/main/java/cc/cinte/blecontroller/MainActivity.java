@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity { ;
     public void sendMsg(){
         UUID serviceUUID= UUID.fromString("0000ffe0-0000-1000-8000-00805f9b34fb");
         UUID characterUUID = UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb");
-        String byteTemp=G_Value+"|"+B_Value+"|"+R_Value+"\n";
+        String byteTemp=G_Value+"|"+R_Value+"|"+B_Value+"\n";
         bytes=byteTemp.getBytes();
         mClient.write(address, serviceUUID, characterUUID, bytes, new BleWriteResponse() {
             @Override

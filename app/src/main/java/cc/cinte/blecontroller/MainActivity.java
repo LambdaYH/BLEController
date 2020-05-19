@@ -251,21 +251,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void White_Button(View v){
-        R_Value= String.valueOf(255);
-        G_Value= String.valueOf(255);
-        B_Value= String.valueOf(255);
+        R_SB.setProgress(255);
+        G_SB.setProgress(255);
+        B_SB.setProgress(255);
         sendMsg();
     }
     public void Green_Button(View v){
-        R_Value= String.valueOf(0);
-        G_Value= String.valueOf(255);
-        B_Value= String.valueOf(0);
+        R_SB.setProgress(0);
+        G_SB.setProgress(255);
+        B_SB.setProgress(0);
         sendMsg();
     }
     public void Blue_Button(View v){
-        R_Value= String.valueOf(0);
-        G_Value= String.valueOf(0);
-        B_Value= String.valueOf(255);
+        R_SB.setProgress(255);
+        G_SB.setProgress(0);
+        B_SB.setProgress(0);
         sendMsg();
     }
 
